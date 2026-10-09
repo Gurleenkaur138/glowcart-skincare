@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowCart — Radiant Skincare & Beauty Essentials</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=100">
+</head>
+<body>
+
+  <!-- Glowing Background Orbs -->
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <i class="fa-solid fa-sparkles"></i>✨ Complimentary Shipping on Orders over $50 | Code <strong>GLOW20</strong> for 20% OFF
+  </div>
+
+  <!-- Navbar Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-glow-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="logo-text">Glow<span>Cart</span></div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link active">Home</a></li>
+          <li><a href="#shop" class="nav-link">Shop</a></li>
+          <li class="nav-item-dropdown">
+            <span class="nav-link">Categories <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></span>
+            <div class="dropdown-menu">
+              <div class="dropdown-item" onclick="filterByCategory('all')"><i class="fa-solid fa-border-all"></i> All Products</div>
+              <div class="dropdown-item" onclick="filterByCategory('serums')"><i class="fa-solid fa-droplet"></i> Serums</div>
+              <div class="dropdown-item" onclick="filterByCategory('moisturizers')"><i class="fa-solid fa-jar"></i> Moisturizers</div>
+              <div class="dropdown-item" onclick="filterByCategory('cleanse')"><i class="fa-solid fa-soap"></i> Cleanse</div>
+              <div class="dropdown-item" onclick="filterByCategory('masks')"><i class="fa-solid fa-spa"></i> Masks</div>
+              <div class="dropdown-item" onclick="filterByCategory('tech')"><i class="fa-solid fa-microchip"></i> Tech Care</div>
+              <div class="dropdown-item" onclick="filterByCategory('tools')"><i class="fa-solid fa-gem"></i> Tools</div>
+            </div>
+          </li>
+          <li><span class="nav-link" id="nav-bestsellers"><i class="fa-solid fa-crown" style="color:#ffc107; font-size:0.85rem;"></i> Best Sellers</span></li>
+          <li><span class="nav-link" id="nav-offers"><i class="fa-solid fa-fire-flame-curved" style="color:var(--accent-pink); font-size:0.85rem;"></i> Offers</span></li>
+        </ul>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="Search serums, masks, moisturizers...">
+      </div>
+
+      <!-- Action Buttons (Wishlist, Login/Profile, Cart) -->
+      <div class="nav-actions">
+        <button class="user-profile-btn" id="auth-btn" title="Login or Profile">
+          <i class="fa-solid fa-user"></i>
+          <span id="auth-btn-text">Login</span>
+        </button>
+
+        <button class="icon-btn" id="wishlist-btn" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count" id="wishlist-badge">0</span>
+        </button>
+        <button class="icon-btn" id="cart-toggle-btn" title="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-pill">
+        <i class="fa-solid fa-star-sharp"></i> 100% Organic & Dermatologist Tested
+      </div>
+      <h1 class="hero-title">Unveil Your <span>Natural Glow</span></h1>
+      <p class="hero-subtitle">
+        Discover skincare essentials crafted to nourish, hydrate, and reveal healthy, radiant skin.
+      </p>
+      <a href="#shop" class="glow-btn">
+        Explore Collection <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <img src="images/hero-radiant-glow.jpg" alt="GlowCart Radiant Skincare Hero" class="hero-img" style="object-position: center;">
+      <div class="hero-floating-card">
+        <div style="background: var(--accent-gradient); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff;">
+          <i class="fa-solid fa-shield-check"></i>
+        </div>
+        <div>
+          <div style="font-weight: 700; font-size: 0.9rem;">23 New Beauty Arrivals</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Serums, Moisturizers, Cleansers, Masks & Tools</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Store Section -->
+  <main class="main-container" id="shop">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Curated Beauty Collection</h2>
+        <p style="color: var(--text-muted);">Formulated with active botanicals and dermatological precision.</p>
+      </div>
+      <div class="category-tabs">
+        <button class="tab-btn active" data-category="all">All Products</button>
+        <button class="tab-btn" data-category="serums">Serums</button>
+        <button class="tab-btn" data-category="moisturizers">Moisturizers</button>
+        <button class="tab-btn" data-category="cleanse">Cleanse</button>
+        <button class="tab-btn" data-category="masks">Masks</button>
+        <button class="tab-btn" data-category="tech">Tech Care</button>
+        <button class="tab-btn" data-category="tools">Tools</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Product Grid -->
+    <div class="product-grid" id="product-grid">
+      <!-- Injected via app.js -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 3rem 1.5rem 2rem; margin-top: 5rem;">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+      <div>
+        <div class="logo" style="margin-bottom: 1rem;">
+          <div class="logo-glow-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="logo-text">Glow<span>Cart</span></div>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Empowering radiant, healthy skin with futuristic botanical formulas.</p>
+      </div>
+      <div>
+        <h4 style="font-size: 1rem; margin-bottom: 1rem;">Quick Links</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+          <li><a href="#shop">Shop All</a></li>
+          <li><a href="#">About Our Formulations</a></li>
+          <li><a href="#">Dermatologist Reviews</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 1rem; margin-bottom: 1rem;">Customer Care</h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 1rem; margin-bottom: 1rem;">Join The Glow Club</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">Subscribe for 15% off your first luxury order.</p>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="email" placeholder="Your email address" style="padding: 0.6rem 1rem; border-radius: var(--radius-full); background: var(--bg-glass); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.85rem; flex: 1;">
+          <button class="glow-btn" style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">Join</button>
+        </div>
+      </div>
+    </div>
+    <div style="max-width: 1280px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+      © 2026 GlowCart Inc. All Rights Reserved. Crafted for radiant skin.
+    </div>
+  </footer>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3 class="cart-title"><i class="fa-solid fa-bag-shopping" style="color: var(--accent-cyan);"></i> Your Cart</h3>
+      <button class="close-btn" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items-body" id="cart-items-container">
+      <!-- Injected via app.js -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">
+        Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Quick View Product Detail Modal -->
+  <div class="modal-overlay" id="quick-view-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="quick-view-close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body">
+        <img src="" alt="Product Detail" class="modal-img" id="modal-img">
+        <div class="modal-info">
+          <h2 id="modal-title" style="font-size: 1.6rem; font-weight: 800;"></h2>
+          <div id="modal-rating" style="color: #ffc107; font-weight: 600; font-size: 0.9rem;"></div>
+          <div id="modal-price" style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan);"></div>
+          <p id="modal-desc" style="color: var(--text-secondary); font-size: 0.95rem;"></p>
+          <ul class="modal-features" id="modal-features"></ul>
+          <button class="glow-btn" id="modal-add-btn" style="margin-top: 1rem; width: 100%; justify-content: center;">
+            <i class="fa-solid fa-bag-shopping"></i> Add To Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card" style="max-width: 550px;">
+      <button class="modal-close" id="checkout-close"><i class="fa-solid fa-xmark"></i></button>
+      <div style="padding: 2rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fa-solid fa-shield-check" style="color: var(--accent-cyan);"></i> Secure Checkout
+        </h2>
+        <form id="checkout-form" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Full Name</label>
+            <input type="text" required placeholder="Jane Doe" style="width:100%; padding:0.75rem; border-radius: var(--radius-sm); background: var(--bg-glass); border: 1px solid var(--border-color); color: var(--text-primary); margin-top: 0.3rem;">
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Shipping Address</label>
+            <input type="text" required placeholder="123 Glow St, City, Country" style="width:100%; padding:0.75rem; border-radius: var(--radius-sm); background: var(--bg-glass); border: 1px solid var(--border-color); color: var(--text-primary); margin-top: 0.3rem;">
+          </div>
+          <div>
+            <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Payment Method</label>
+            <select style="width:100%; padding:0.75rem; border-radius: var(--radius-sm); background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); margin-top: 0.3rem;">
+              <option>Credit / Debit Card (Simulated)</option>
+              <option>Apple Pay / Google Pay</option>
+              <option>PayPal</option>
+            </select>
+          </div>
+          <button type="submit" class="glow-btn" style="margin-top: 1rem; width: 100%; justify-content: center;">
+            <i class="fa-solid fa-lock"></i> Place Order & Pay
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login & User Profile Modal -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card" style="max-width: 450px;">
+      <button class="modal-close" id="auth-close"><i class="fa-solid fa-xmark"></i></button>
+      <div style="padding: 2rem;">
+        
+        <!-- State 1: Login / Sign In Form -->
+        <div id="auth-login-view">
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-right-to-bracket" style="color: var(--accent-cyan);"></i> Glow Member Login
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">Access your exclusive rewards, order history, and saved wishlist.</p>
+
+          <form id="login-form" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Email Address</label>
+              <input type="email" id="login-email" required placeholder="member@glowcart.com" style="width:100%; padding:0.75rem; border-radius: var(--radius-sm); background: var(--bg-glass); border: 1px solid var(--border-color); color: var(--text-primary); margin-top: 0.3rem;">
+            </div>
+            <div>
+              <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Password</label>
+              <input type="password" id="login-password" required placeholder="••••••••" style="width:100%; padding:0.75rem; border-radius: var(--radius-sm); background: var(--bg-glass); border: 1px solid var(--border-color); color: var(--text-primary); margin-top: 0.3rem;">
+            </div>
+            <button type="submit" class="glow-btn" style="margin-top: 0.5rem; width: 100%; justify-content: center;">
+              Sign In
+            </button>
+          </form>
+        </div>
+
+        <!-- State 2: User Profile View (when logged in) -->
+        <div id="auth-profile-view" style="display: none; text-align: center;">
+          <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; margin: 0 auto 1rem; box-shadow: var(--glow-shadow);">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <h3 id="profile-name" style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.2rem;">Jane Glow</h3>
+          <p id="profile-email" style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">member@glowcart.com</p>
+
+          <div style="background: var(--bg-glass); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Glow Points</div>
+              <div style="font-weight: 800; color: var(--accent-cyan); font-size: 1.2rem;">450 pts</div>
+            </div>
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Membership Tier</div>
+              <div style="font-weight: 800; color: #ffc107; font-size: 1.2rem;">VIP Gold</div>
+            </div>
+          </div>
+
+          <button id="logout-btn" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-full); background: rgba(255, 8, 68, 0.15); border: 1px solid rgba(255, 8, 68, 0.3); color: var(--accent-pink); font-weight: 700;">
+            <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/products.js?v=109"></script>
+  <script src="js/app.js?v=109"></script>
+</body>
+</html>
